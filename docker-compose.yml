@@ -1,0 +1,8 @@
+services:
+  graphite-exporter:
+    image: prom/graphite-exporter
+    container_name: graphite-exporter
+    ports:
+      - "9108:9108"
+      - "2003:2003"
+    restart: unless-stopped
