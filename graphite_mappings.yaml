@@ -1,5 +1,5 @@
+
 mappings:
-  # CPU Metrics
   - match: "truenas\\.cpu\\.(\\d+)\\.(.*)"
     match_type: regex
     name: "truenas_cpu"
@@ -7,7 +7,6 @@ mappings:
       core: "$1"
       metric: "$2"
 
-  # Disk I/O Metrics
   - match: "truenas\\.disk\\.(\\w+)\\.(read|write)"
     match_type: regex
     name: "truenas_disk_io"
@@ -15,22 +14,9 @@ mappings:
       disk: "$1"
       operation: "$2"
 
-  # Memory Metrics
   - match: "truenas\\.memory\\.(.*)"
     match_type: regex
     name: "truenas_memory"
     labels:
       type: "$1"
-
-  # Network Traffic Metrics
-  - match: "truenas\\.network\\.(\\w+)\\.(in|out)"
-    match_type: regex
-    name: "truenas_network_traffic"
-    labels:
-      interface: "$1"
-      direction: "$2"
-
-  # Default Fallback Rule
-  - match: ".*"
-    name: "unmatched_metric"
 
